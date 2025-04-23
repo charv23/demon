@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For my dearest demon</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: white;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .tulip-img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+    }
+    .petal-area {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      transition: transform 1s ease, opacity 0.5s ease;
+    }
+    .petal-area.clicked {
+      transform: scale(1.5) rotate(20deg);
+      opacity: 0;
+    }
+    .letter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      font-size: 18px;
+      color: black;
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      max-width: 80%;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .petal-area.clicked + .letter {
+      display: block;
+      opacity: 1;
+    }
+    .petal1 { top: 80px; left: 170px; }
+    .petal2 { top: 110px; left: 130px; }
+    .petal3 { top: 110px; left: 210px; }
+    .petal4 { top: 220px; left: 80px; }
+    .petal5 { top: 220px; left: 160px; }
+    .petal6 { top: 220px; left: 240px; }
+    .petal7 { top: 270px; left: 100px; }
+    .petal8 { top: 270px; left: 180px; }
+    .petal9 { top: 270px; left: 260px; }
+  </style>
+</head>
+<body>
+  <div class="title">For my dearest demon ✨</div>
+  <div class="container" onclick="closeLetters()">
+    <img src="https://i.pinimg.com/736x/25/56/b1/2556b1c72bc896a821741a928a803c51.jpg" alt="Tulip" class="tulip-img">
+
+    <div class="petal-area petal1" onclick="togglePetal(event, this)"></div>
+    <div class="letter">You have the cutest smile, I swear. The kind that makes me smile like an idiot no matter how hard of a day it was.</div>
+
+    <div class="petal-area petal2" onclick="togglePetal(event, this)"></div>
+    <div class="letter">I'm so proud of you, Myel. In everything that you do, I will always be proud of you.</div>
+
+    <div class="petal-area petal3" onclick="togglePetal(event, this)"></div>
+    <div class="letter">You're adorable and cute and pretty and stunning and gorgeous and beautiful and just ahhhhhhhhhhh</div>
+
+    <div class="petal-area petal4" onclick="togglePetal(event, this)"></div>
+    <div class="letter">Keep your head up, my dearest demon. It's okay to fall, but I know you will get back up every time.</div>
+
+    <div class="petal-area petal5" onclick="togglePetal(event, this)"></div>
+    <div class="letter">You are doing the best you can, and that is always enough 💛</div>
+
+    <div class="petal-area petal6" onclick="togglePetal(event, this)"></div>
+    <div class="letter">I want to see you win, I want to see you absolutely smash every single dream you have</div>
+
+    <div class="petal-area petal7" onclick="togglePetal(event, this)"></div>
+    <div class="letter">Miss you sooooooooooooooo much!!</div>
+
+    <div class="petal-area petal8" onclick="togglePetal(event, this)"></div>
+    <div class="letter">Bleeeeeeeeeeeeeeeeh</div>
+
+    <div class="petal-area petal9" onclick="togglePetal(event, this)"></div>
+    <div class="letter">I fell for you without knowing how, or when, or where. I wanna be so close to you that your hand becomes mine, so close that you close your eyes and I fall asleep. I hope to make you completely, and perfectly, and incadescently happy, Myel.</div>
+  </div>
+
+  <script>
+    function togglePetal(event, petal) {
+      event.stopPropagation();
+      petal.classList.add('clicked');
+      let message = petal.nextElementSibling;
+      message.style.display = 'block';
+      setTimeout(() => {
+        message.style.opacity = '1';
+      }, 10);
+    }
+
+    function closeLetters() {
+      document.querySelectorAll('.letter').forEach(letter => {
+        letter.style.opacity = '0';
+        setTimeout(() => {
+          letter.style.display = 'none';
+        }, 1500);
+      });
+      document.querySelectorAll('.petal-area').forEach(petal => {
+        petal.classList.remove('clicked');
+      });
+    }
+  </script>
+</body>
+</html>
